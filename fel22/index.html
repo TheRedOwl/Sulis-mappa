@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwindConfig.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body class="bg-[#6d28d9] flex flex-col w-full items-center justify-center h-screen dark:bg-[#1e1b4b]">
+    <div class="text-[#fde047] word flex justify-evenly w-full mb-2"></div>
+    <div class="darkButton flex justify-center items-center cursor-pointer border border-[#fde047] rounded w-10 h-10 text-[#fde047] hover:bg-[#4c1d95]" type="button"><i class="fa-solid fa-sun fa-xl"></i><i class="fa-solid fa-moon hidden fa-xl"></i></div>
+
+    <script src="words.js"></script>
+    <script>
+         function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        let number=0
+
+        let guessWord=words[getRandomInt(words.length+1)]
+            abc.split("").forEach((obj) => {
+            document.querySelector(".word").innerHTML+=`<div class="text-center w-10 h-10 border" type="button" onclick="putInLetter(this)">${obj}</div>`
+        });
+
+        document.querySelector(".darkButton").addEventListener("click",darkMode)
+
+        moon=document.querySelector(".fa-moon")
+        sun=document.querySelector(".fa-sun")
+
+        function darkMode(){
+            if(moon.classList.contains("hidden")){
+
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let pw="12asA3"
+       /* let vanNagyBetu=/[A-Z]/.test(pw)
+        console.log(vanNagyBetu);
+        let vanKisBetu=/[a-z]/.test(pw)
+        console.log(vanKisBetu);
+        let vanSzam=/\d/.test(pw)
+        console.log(vanSzam);
+        let mindSzamjegy=/^\d+$/.test(pw)
+        console.log(mindSzamjegy);
+        let hossz=/^.{6}$/.test(pw)
+        console.log(hossz);*/
+
+        function allCases(str){
+            const upper=/[A-Z]/.test(str)
+            const lower=/[a-z]/.test(str)
+            return upper && lower
+        }
+
+        function checkPassword(pw){
+            const upper=/[A-Z]/.test(pw)
+            const lower=/[a-z]/.test(pw)
+            const number=/\d/.test(pw)
+            const length= pw.length==7
+            return upper && lower && number && length
+        }
+
+        console.log(checkPassword("asdASD1"));
+    </script>
+</body>
+</html>

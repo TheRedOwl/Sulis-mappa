@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lotto</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: auto;
+        }
+
+        .holder {
+            display: flex;
+            justify-content: space-between;
+            gap: 2px;
+        }
+
+        span {
+            border: 1px solid gray;
+            padding: 5px;
+        }
+        img{
+            max-width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lottó sorsolás</h1>
+        <div class="holder"></div>
+        <button>új sorsolás</button>
+        <div>
+            <input type="file" id="photo" accept="image/*">
+        </div>
+        <img src="" alt="" id="selectedPhoto">
+    </div>
+
+
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

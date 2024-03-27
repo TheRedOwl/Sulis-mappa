@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="input">
+            <h1>Adatok feltöltése</h1>
+            <h3>Név:</h3>
+            <input type="text" id="nev">
+            <h3>Születési év:</h3>
+            <input type="number" id="ev">
+            <input type="button" onclick="save()" value="Mentés">
+        </div>
+        
+        <div class="table">
+            <table>
+
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let persons=[]
+
+        const render =()=>{
+            let table=document.querySelector("table")
+            persons.forEach((pers)=>{
+                console.log(pers)
+                table.innerHTML+=`
+                <tr>
+                    <th id="th1">${pers.}</th>
+                    <th id="th2">${}</th>
+                </tr>`
+            })
+        }
+
+        const save =()=>{
+            let name=document.getElementById("nev").value
+            let year=document.getElementById("ev").value
+            
+            let person={name,year}
+            //console.log(person)
+            persons.push(person)
+            render()
+        }
+    </script>
+</body>
+</html>

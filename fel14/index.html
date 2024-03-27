@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+    <title>Document</title>
+    <script src="shoppingList.js"></script>
+</head>
+
+<body>
+    <input type="text" id="item" placeholder="add item">
+    <button onclick="add()">add item</button>
+    <ul></ul>
+
+    <script>
+        const shoppingList = createShoppingList()
+
+        let input = document.getElementById("item")
+        let ul = document.querySelector("ul")
+
+        const add = () => {
+            const newItem = input.value
+            if (newItem) {
+                shoppingList.addItem(newItem)
+                input.value = ""
+                renderLi()
+            }
+        }
+
+        function renderLi() {
+            ul.innerHTML = ""
+            shoppingList.getItems().forEach(item => {
+                ul.innerHTML += `<li>${item} <span onclick="del('${item}')">❌</span></li>`
+            });
+
+            const del = (item) => {
+                console.log(item);
+                shoppingList.delItem(item)
+                renderLi()
+            }
+        }
+    </script>
+
+    <script src="tests.js"></script>
+    <script src="shoppingList.js"></script>
+
+    <div id="mocha"></div>
+    <!-- chai (assertion library) -->
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <!-- mocha (test runner) -->
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+
+    <script class="mocha-init">
+        mocha.setup('bdd');
+        mocha.checkLeaks();
+    </script>
+
+    <script class="mocha-exec">
+        mocha.run();
+    </script>
+</body>
+
+</html>

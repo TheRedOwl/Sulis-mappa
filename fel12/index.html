@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="getData.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="flex justify-center text-5xl"></h1>
+    <h2 class="flex justify-center text-2xl"></h2>
+    <div class="grid-3 flex lg:flex-row flex-col justify-around" id="Main">
+
+    </div>
+
+    <script>
+        let url = "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json"
+        getData(url, renderCards)
+
+        function renderCards(data) {
+            console.log(data);
+            document.querySelector("h1").innerHTML=data.homeTown
+            document.querySelector("h2").innerHTML=data.formed
+            console.log(data.members);
+
+            data.members.forEach((element) => {
+                console.log(element);
+                document.querySelector("#Main").innerHTML += `
+                                <div class="card w-80 bg-gray-300 bg-base-100 shadow-xl mt-6">
+                                    <div class="card-body">
+                                        <h2 class="card-title flex justify-center text-3xl text-black">${element.name}</h2>
+                                        <p class="flex justify-center text-black">Age: ${element.age}</p>
+                                        <p class="flex justify-center text-black">${element.secretIdentity}</p>
+                                        <div class="card-actions justify-center">
+                                            <button class="btn btn-primary" onclick="spec(this)">Specifications</button>
+                                        </div>
+                                    </div>
+                                </div>`
+            });
+        }
+
+
+    </script>
+
+</body>
+
+</html>

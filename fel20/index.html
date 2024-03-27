@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy Loading</title>
+    <style>
+        .holder{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+      img {
+        max-width: 300px;
+        object-fit: cover;
+      }
+      img:hover {
+        transform: scaleX(-1);
+      }
+      .loading{
+        background-color: red;
+        color: burlywood;
+        position: fixed;
+        right: 0;
+        top: 2rem;
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+        <input type="text" name="" id="searchInput">
+        <button id="searchButton">
+    </div>
+    <h1>Image Gallery</h1>
+    <div class="holder"></div>
+    <p class="loading">Loading...</p>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
