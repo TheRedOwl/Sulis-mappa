@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            height: 40px;
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="number" name="" id="" placeholder="írd le a korod">
+        <button onclick="check()"></button>
+        <p class="eredmeny"></p>
+    </div>
+
+    <ul>
+        
+    </ul>
+
+    <script>
+        function check(){
+            var szam = +document.querySelector("input").value
+            document.querySelector(".eredmeny").innerHTML = `${getCategory(szam)} vagy!`
+            /*var szoveg = ""
+            szam%2 == 0 ? szoveg = `A(z) ${szam} egy páros szám` : szoveg = `A(z) ${szam} egy páratlan szám`
+            console.log(szoveg);*/
+        }
+
+        const getCategory=(age)=>{
+            return age>=0 && age<=12 ? "Gyerek" : 
+                    age>=13 && age<=19 ? "Tizenéves" :
+                    age>=20 && age<=64 ? "Felnőtt" : "Idős"
+        }
+
+        let age="10"
+        age=+age
+        age && console.log(getCategory(age));
+        let name = "KaKálmán"
+        console.log(name[0]);
+        let arr=[1,23,1,23,4,543,6,5,7,8,6]
+        console.log(arr.includes(1));
+        console.log(arr.includes(123));
+        let nr=123
+        arra=[...arr,nr,nr]
+        console.log(arra);
+        let arr2=[55,87,94,32]
+        let newarr=[...arra,...arr2]
+        console.log(newarr);
+        console.log(Math.max(...newarr));
+        let uniqueArr=[...new Set(newarr)]
+        console.log(uniqueArr);
+        let pers={name:"Nigga", tel:12432353253}
+        pers={...pers,date:2005}
+        console.log(pers);
+        pers={...pers,date:2004}
+        console.log(pers);
+        let categ="Renault"
+        let type="Kangoo"
+        let year=2000
+        let car={categ,type,year}
+        
+        console.log(car);
+
+        let obj1={a:1,b:2}
+        let obj2={a:5,c:6}
+        let obj={...obj1,...obj2}
+        console.log(obj);
+        
+        //destrukturáló sinctaxis
+
+        /*let a = obj.a
+        let b = obj.b
+        let c = obj.c
+
+        console.log(a,b,c);*/
+
+        let {a,b,c}=obj
+
+        console.log(a,b,c)
+
+        let attrName = "year"
+        let {[attrName]:var1}=car
+        console.log(var1);
+        
+        //for-in ciglus
+
+        for(const key in car){
+            console.log(key,car[key]);
+        }
+
+        uniqueArr.forEach((item,index)=>{
+            console.log(item,index);
+        })
+
+        let result = uniqueArr.some(item=>item<0)
+        console.log(result);
+        result=uniqueArr.every(item=>item>0)
+        console.log(result);
+        
+        let newArr2=uniqueArr.map(item=>`<li>${item}</li>`)
+        console.log(newArr2);
+        document.querySelector("ul").innerHTML=newArr2.join("")
+        let evenArr=uniqueArr.filter(item=>item%2==0)
+        console.log(evenArr);
+        let oddArr=uniqueArr.filter(item=>item%2!=0)
+        console.log(oddArr);
+        
+        let cars=[]
+        cars=[...cars,car,car,car]
+        cars[1]={...cars[1],year:2001}
+        cars[2]={...cars[2],year:2004}
+        console.log(cars);
+        
+        let searchedObj=cars.find(obj=>obj.year==2000)
+        console.log(searchedObj);
+        
+        let exist=cars.findIndex(obj=>obj.year==2000)
+        console.log(exist);
+        
+
+    </script>
+</body>
+</html>
